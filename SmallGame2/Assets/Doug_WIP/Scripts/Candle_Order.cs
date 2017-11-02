@@ -16,7 +16,7 @@ public class Candle_Order : MonoBehaviour {
 
     private void Update()
     {
-        if (Raycast_for_Candle.bl_IsHit)
+        if ()
         {
 
         }
