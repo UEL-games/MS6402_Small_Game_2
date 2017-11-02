@@ -16,10 +16,7 @@ public class Candle_Order : MonoBehaviour {
 
     private void Update()
     {
-        if ()
-        {
-
-        }
+        
 
     }
 
