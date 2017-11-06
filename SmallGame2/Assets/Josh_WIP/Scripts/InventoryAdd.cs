@@ -44,19 +44,10 @@ public class InventoryAdd : MonoBehaviour
                     GameObject HitItem = coll.gameObject;
                     Debug.Log(HitItem);
                     //Camera.main.GetComponent<Inventory>().PC_Inventory.Add(HitItem);
-                    Camera.main.GetComponent<Inventory>().AddItem(HitItem);
-                    InInv = true;
-                    HitItem.transform.position = InvPanel.transform.position;
-                    //HitItem.transform.localScale += new Vector3(10,10,0); 
-                    coll.gameObject.SetActive(false);
-                    for (int i = 0; i < PCInventory.Count; i++)
-                    {
-                        if (PCInventory[i].name != null)
-                        {
-                            Debug.Log(PCInventory[i].name + " added to inventory");
-                            
-                        }
-                    }
+                    Camera.main.GetComponent<Inventory>().AddItem(HitItem);         // IF HIT ADD ITEM TO INVENTORY LIST
+                    InInv = true;  // SET BOOLEAN ININVENTORY TO TRUE
+                    HitItem.transform.position = InvPanel.transform.position;    // MOVE OBJECT TO INVENTORY PANEL SLOT
+                    coll.gameObject.SetActive(false);   // tURN OBJECT OFF IN SCENE / PUT IN INVENTORY
                 }
             }
             else

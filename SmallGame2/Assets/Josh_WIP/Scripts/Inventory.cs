@@ -17,29 +17,37 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         ShowInventory();
+        for (int i = 0; i < PC_Inventory.Count; i++)
+        {
+            if (PC_Inventory[i].activeSelf == false && Showing == true)   // CHECK IF INVENTORY IS SHOWING. IF IT IS SHOW NEW ITEMS
+            {
+                PC_Inventory[i].SetActive(true);
+            }
+        }
     }
 
     public void AddItem(GameObject clicked)
     {
-        Debug.Log("Adding!");
+        //Debug.Log("Adding!");
         PC_Inventory.Add(clicked);
     }
 
     public void ShowInventory()
     {
-        if (Input.GetKeyDown("i") && Showing == true)
+        
+        if (Input.GetKeyDown("i") && Showing == true)       // IF I IS PRESSED AND INVENTORY IS SHOWING TURN IT OFF
         {
 
             for (int i = 0; i < PC_Inventory.Count; i++)
             {
 
-                Debug.Log("I WAS PRESSED");
+                //Debug.Log("I WAS PRESSED");
                 PC_Inventory[i].SetActive(false);
                 Showing = false;
             }
             
         }
-        else if (Input.GetKeyDown("i") && Showing == false)
+        else if (Input.GetKeyDown("i") && Showing == false)   // ELSE IF I IS PRESSED AND INVENTORY IS NOT SHOWING THEN TURN IT ON
         {
             for (int i = 0; i < PC_Inventory.Count; i++)
             {
