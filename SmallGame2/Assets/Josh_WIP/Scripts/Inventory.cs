@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<GameObject> PC_Inventory = new List<GameObject>();
+    public bool Showing = true;
 
     // Use this for initialization
     void Start()
@@ -15,17 +16,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("i"))
-        {
-            for (int i = 0; i < PC_Inventory.Count; i++)
-            {
-                if (PC_Inventory[i].name != null)
-                {
-                    Debug.Log(PC_Inventory[i].name + "TEST");
-                }
-            }
-
-        }
+        ShowInventory();
     }
 
     public void AddItem(GameObject clicked)
@@ -33,4 +24,31 @@ public class Inventory : MonoBehaviour
         Debug.Log("Adding!");
         PC_Inventory.Add(clicked);
     }
+
+    public void ShowInventory()
+    {
+        if (Input.GetKeyDown("i") && Showing == true)
+        {
+
+            for (int i = 0; i < PC_Inventory.Count; i++)
+            {
+
+                Debug.Log("I WAS PRESSED");
+                PC_Inventory[i].SetActive(false);
+                Showing = false;
+            }
+            
+        }
+        else if (Input.GetKeyDown("i") && Showing == false)
+        {
+            for (int i = 0; i < PC_Inventory.Count; i++)
+            {
+
+                PC_Inventory[i].SetActive(true);
+                Showing = true;
+            }
+            
+        }
+    }
+
 }

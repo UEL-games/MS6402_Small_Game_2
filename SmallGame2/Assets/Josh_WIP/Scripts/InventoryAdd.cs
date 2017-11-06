@@ -14,7 +14,6 @@ public class InventoryAdd : MonoBehaviour
     void Start()
     {
         Camera.main.GetComponent<Inventory>().PC_Inventory = PCInventory;
-
         coll = GetComponent<Collider>();
     }
 
@@ -22,17 +21,7 @@ public class InventoryAdd : MonoBehaviour
     void Update()
     {
         PlaceInInventory();
-        if (Input.GetKeyDown("i"))
-        {
-            for (int i = 0; i < PCInventory.Count; i++)
-            {
-                if (PCInventory[i].name != null)
-                {
-                    Debug.Log(PCInventory[i].name + "TEST");
-                } 
-            }
-            
-        }
+
         
     }
 
@@ -59,7 +48,7 @@ public class InventoryAdd : MonoBehaviour
                     InInv = true;
                     HitItem.transform.position = InvPanel.transform.position;
                     //HitItem.transform.localScale += new Vector3(10,10,0); 
-                    //coll.gameObject.SetActive(false);
+                    coll.gameObject.SetActive(false);
                     for (int i = 0; i < PCInventory.Count; i++)
                     {
                         if (PCInventory[i].name != null)
@@ -76,4 +65,5 @@ public class InventoryAdd : MonoBehaviour
             }
         }
     }
+    
 }
