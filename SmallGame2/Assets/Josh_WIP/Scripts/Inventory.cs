@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject[] PC_Inventory = new GameObject[5];
-    public int InvNum = 0;
+    public List<GameObject> PC_Inventory = new List<GameObject>();
 
     // Use this for initialization
     void Start()
@@ -16,12 +15,22 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+        if (Input.GetKeyDown("i"))
+        {
+            for (int i = 0; i < PC_Inventory.Count; i++)
+            {
+                if (PC_Inventory[i].name != null)
+                {
+                    Debug.Log(PC_Inventory[i].name + "TEST");
+                }
+            }
+
+        }
     }
 
-    public void AddItem()
+    public void AddItem(GameObject clicked)
     {
-        InvNum++;
+        Debug.Log("Adding!");
+        PC_Inventory.Add(clicked);
     }
 }
