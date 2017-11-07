@@ -6,6 +6,8 @@ public class Inventory : MonoBehaviour
 {
     public List<GameObject> PC_Inventory = new List<GameObject>();
     public bool Showing = true;
+    public List<GameObject> InvPanels = new List<GameObject>();
+    public bool Equipped = false;
 
     // Use this for initialization
     void Start()
@@ -16,6 +18,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Equipped);
         ShowInventory();
         for (int i = 0; i < PC_Inventory.Count; i++)
         {
@@ -42,6 +45,10 @@ public class Inventory : MonoBehaviour
             {
 
                 //Debug.Log("I WAS PRESSED");
+                foreach (GameObject panel in InvPanels)
+                {
+                    panel.SetActive(false);
+                }
                 PC_Inventory[i].SetActive(false);
                 Showing = false;
             }
@@ -51,7 +58,10 @@ public class Inventory : MonoBehaviour
         {
             for (int i = 0; i < PC_Inventory.Count; i++)
             {
-
+                foreach (GameObject panel in InvPanels)
+                {
+                    panel.SetActive(true);
+                }
                 PC_Inventory[i].SetActive(true);
                 Showing = true;
             }
