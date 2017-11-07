@@ -9,12 +9,11 @@ public class InventoryAdd : MonoBehaviour
     public List<GameObject> PCInventory = new List<GameObject>();
     public bool InInv = false;
     private int num;
-    public GameObject InvPanel;
+    //public GameObject InvPanel;
     public GameObject EquipPanel;
 
     void Start()
     {
-        Camera.main.GetComponent<Inventory>().PC_Inventory = PCInventory;
         coll = GetComponent<Collider>();
     }
 
@@ -23,7 +22,6 @@ public class InventoryAdd : MonoBehaviour
     {
         PlaceInInventory();
         EquipItem();
-        
     }
 
     void PlaceInInventory()
@@ -47,7 +45,17 @@ public class InventoryAdd : MonoBehaviour
                     //Camera.main.GetComponent<Inventory>().PC_Inventory.Add(HitItem);
                     Camera.main.GetComponent<Inventory>().AddItem(HitItem);         // IF HIT ADD ITEM TO INVENTORY LIST
                     InInv = true;  // SET BOOLEAN ININVENTORY TO TRUE
-                    HitItem.transform.position = InvPanel.transform.position;    // MOVE OBJECT TO INVENTORY PANEL SLOT
+                    for (int i = 0; i < Camera.main.GetComponent<Inventory>().InvPanels.Count; i++)
+                    {
+                        if (Camera.main.GetComponent<Inventory>().InvPanels[i] != null)
+                        {
+                            HitItem.transform.position = Camera.main.GetComponent<Inventory>().InvPanels[Camera.main.GetComponent<Inventory>().SlotNum].transform.position;
+                            break;
+                        }
+                    }
+                    num = Camera.main.GetComponent<Inventory>().SlotNum;
+                    Camera.main.GetComponent<Inventory>().SlotNum++;
+                    //HitItem.transform.position = InvPanel.transform.position;    // MOVE OBJECT TO INVENTORY PANEL SLOT
                     coll.gameObject.SetActive(false);   // tURN OBJECT OFF IN SCENE / PUT IN INVENTORY
                 }
             }
@@ -60,9 +68,9 @@ public class InventoryAdd : MonoBehaviour
 
     void EquipItem()
     {
-        if (!Camera.main.GetComponent<Inventory>().Equipped)
+        if (!Camera.main.GetComponent<Inventory>().Equipped) // IF NOT EQUIPPED THEN EQUIP IT
         {
-            if (Input.GetMouseButtonDown(0) && InInv)
+            if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift) && InInv)  //IF IT IS CLICKED ON AND IN THE INVENTORY THEN EQUIP IT
             {
 
                 //raycast to mouse position
@@ -88,9 +96,9 @@ public class InventoryAdd : MonoBehaviour
                 }
             }          
         }
-        if (Camera.main.GetComponent<Inventory>().Equipped)
+        if (Camera.main.GetComponent<Inventory>().Equipped)  // IF ITEM IS EQUIPPED AND CLICKED ON THEN UNEQUIP IT
         {
-            if (Input.GetMouseButtonDown(0) && !InInv)
+            if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift)  && !InInv)
             {
                 //raycast to mouse position
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -103,9 +111,9 @@ public class InventoryAdd : MonoBehaviour
                     if (bl_IsHit)
                     {
                         GameObject HitItem = coll.gameObject;
-                        Camera.main.GetComponent<Inventory>().Equipped = false;
+                        Camera.main.GetComponent<Inventory>().Equipped = false;   // SET EQUIPPED TO FALSE
                         InInv = true;
-                        HitItem.transform.position = InvPanel.transform.position;    // MOVE OBJECT TO INVENTORY PANEL SLOT
+                        HitItem.transform.position = Camera.main.GetComponent<Inventory>().InvPanels[num].transform.position;    // MOVE OBJECT BACK TO INVENTORY PANEL SLOT
                         coll.gameObject.SetActive(false);   // tURN OBJECT OFF IN SCENE / PUT IN INVENTORY
                     }
                 }

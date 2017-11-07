@@ -8,17 +8,17 @@ public class Inventory : MonoBehaviour
     public bool Showing = true;
     public List<GameObject> InvPanels = new List<GameObject>();
     public bool Equipped = false;
+    public int SlotNum;
 
     // Use this for initialization
     void Start()
     {
-
+        SlotNum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Equipped);
         ShowInventory();
         for (int i = 0; i < PC_Inventory.Count; i++)
         {

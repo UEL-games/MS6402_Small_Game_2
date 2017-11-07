@@ -347,7 +347,6 @@ MonoBehaviour:
   coll: {fileID: 1316699378}
   PCInventory: []
   InInv: 0
-  InvPanel: {fileID: 704269048}
   EquipPanel: {fileID: 1869557194}
 --- !u!23 &1316699377
 MeshRenderer:
@@ -510,7 +509,6 @@ MonoBehaviour:
   coll: {fileID: 1573278316}
   PCInventory: []
   InInv: 0
-  InvPanel: {fileID: 1231071651}
   EquipPanel: {fileID: 1869557194}
 --- !u!1 &1869557194
 GameObject:
@@ -640,7 +638,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -686,3 +684,4 @@ MonoBehaviour:
   - {fileID: 704269048}
   - {fileID: 1869557194}
   Equipped: 0
+  SlotNum: 0
