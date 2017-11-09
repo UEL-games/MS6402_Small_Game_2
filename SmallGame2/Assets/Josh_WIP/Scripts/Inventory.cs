@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
             {
                 PC_Inventory[i].SetActive(true);
             }
+
         }
     }
 
@@ -40,7 +41,11 @@ public class Inventory : MonoBehaviour
         
         if (Input.GetKeyDown("i") && Showing == true)       // IF I IS PRESSED AND INVENTORY IS SHOWING TURN IT OFF
         {
-
+            foreach (GameObject panel in InvPanels)
+            {
+                panel.SetActive(false);
+            }           
+            Showing = false;
             for (int i = 0; i < PC_Inventory.Count; i++)
             {
 
@@ -56,6 +61,11 @@ public class Inventory : MonoBehaviour
         }
         else if (Input.GetKeyDown("i") && Showing == false)   // ELSE IF I IS PRESSED AND INVENTORY IS NOT SHOWING THEN TURN IT ON
         {
+            foreach (GameObject panel in InvPanels)
+            {
+                panel.SetActive(true);
+            }
+            Showing = true;
             for (int i = 0; i < PC_Inventory.Count; i++)
             {
                 foreach (GameObject panel in InvPanels)
