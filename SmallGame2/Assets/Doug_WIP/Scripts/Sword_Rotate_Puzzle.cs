@@ -24,6 +24,11 @@ public class Sword_Rotate_Puzzle : MonoBehaviour {
     public int in_Sword4Rot;
     private bool bl_Sword4;
 
+    static GameObject go_Sword5;
+    Sword_Rotate Sword5;
+    public int in_Sword5Rot;
+    private bool bl_Sword5;
+
 
     public bool bl_AllCorrect;
 
@@ -41,6 +46,9 @@ public class Sword_Rotate_Puzzle : MonoBehaviour {
 
         go_Sword4 = GameObject.Find("Sword4");
         Sword4 = go_Sword4.GetComponent<Sword_Rotate>();
+
+        go_Sword5 = GameObject.Find("Sword5");
+        Sword5 = go_Sword5.GetComponent<Sword_Rotate>();
 
     }
 	
@@ -63,7 +71,11 @@ public class Sword_Rotate_Puzzle : MonoBehaviour {
         {
             bl_Sword4 = true;
         }
-        if ((bl_Sword1 == true) && (bl_Sword2 == true) && (bl_Sword3 == true) && (bl_Sword4 == true))
+        if (Sword5.in_isrotated == in_Sword5Rot)
+        {
+            bl_Sword5 = true;
+        }
+        if ((bl_Sword1 == true) && (bl_Sword2 == true) && (bl_Sword3 == true) && (bl_Sword4 == true) && (bl_Sword5 == true))
         {
             bl_AllCorrect = true;
         }
