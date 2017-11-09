@@ -19,11 +19,11 @@ public class Camera_Movement : MonoBehaviour {
 
         if ((Input.GetKeyDown(KeyCode.LeftArrow)) && (bl_IsDown == false))
         {
-            transform.Rotate(new Vector2(0, 90));
+            transform.Rotate(new Vector2(0, -90));
         }
         if ((Input.GetKeyDown(KeyCode.RightArrow)) && (bl_IsDown == false))
         {
-            transform.Rotate(new Vector2(0, -90));
+            transform.Rotate(new Vector2(0, 90));
         }
         if ((Input.GetKeyDown(KeyCode.DownArrow)) && (bl_IsDown == false))
         {

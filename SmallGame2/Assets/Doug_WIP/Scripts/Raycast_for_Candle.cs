@@ -5,7 +5,7 @@ using UnityEngine;
 public class Raycast_for_Candle : MonoBehaviour {
 
     public Collider coll;
-    private bool bl_Is_Hit;
+    public bool bl_Is_Hit;
 
 
     void Start()

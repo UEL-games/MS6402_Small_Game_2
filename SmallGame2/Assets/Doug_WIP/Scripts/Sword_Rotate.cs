@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword_Rotate : MonoBehaviour {
 
     
-    private int in_isrotated;
+    public int in_isrotated;
 
     static GameObject go_Sword;
     Raycast_for_Candle Sword;
