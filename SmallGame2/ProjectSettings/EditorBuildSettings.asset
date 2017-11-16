@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/FINAL_WIP/Menu.unity
+    guid: 1e45405f2874a9040b853b21ff40cb0c
+  - enabled: 1
+    path: Assets/FINAL_WIP/DreadHallows_Final.unity
+    guid: 6837c594c2d15874f81618c2db9e9094
